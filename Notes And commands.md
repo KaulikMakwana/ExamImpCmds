@@ -3,7 +3,7 @@ vulnerability : Nfs squash method
 if you have time Follow this tutorial only
 https://juggernaut-sec.com/nfs-no_root_squash/#Example_1_Crafting_an_Exploit_for_a_Root_Shell
 or
-### Perform vertical privilege escalation of a root user, and enter the flag
+### Perform vertical privilege escalation of a root user
 Exploiting misconfigured NFS (port 2049)
 
 * `nmap -sV —p 2049 IP/Subnet`
