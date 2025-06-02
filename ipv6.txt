@@ -1,0 +1,63 @@
+
+router 1
+
+Router>enable 
+Router#configure terminal 
+Router(config)#hostname r1
+r1(config)#ipv6 unicast-routing 
+r1(config)#int gi 0/0
+r1(config-if)#ipv6 add 2001::1/64
+r1(config-if)#no sh
+r1(config-if)#exit
+r1(config)#int gi 0/1
+r1(config-if)#ipv6 add 2002::1/64
+r1(config-if)#no sh
+r1(config-if)#exit 
+r1(config)#ipv6 router rip abc
+r1(config-rtr)#exit
+r1(config)#int gi 0/0
+r1(config-if)#ipv6 rip abc enable
+r1(config-if)#int gi 0/1
+r1(config-if)#ipv6 rip abc enable
+r1(config-if)#^Z
+r1#wr
+
+check for status
+r1#show ipv6 route 
+
+
+
+
+
+
+
+
+
+
+
+
+router 2
+
+Router>enable 
+Router#configure terminal 
+Router(config)#hostname r2
+r2(config)#ipv6 unicast-routing 
+r2(config)#int gi 0/0
+r2(config-if)#ipv6 add 2003::1/64
+r2(config-if)#no sh
+r2(config-if)#exit
+r2(config)#int gi 0/1
+r2(config-if)#ipv6 add 2002::2/64
+r2(config-if)#no sh
+r2(config-if)#exit 
+r2(config)#ipv6 router rip abc
+r2(config-rtr)#exit
+r2(config)#int gi 0/0
+r2(config-if)#ipv6 rip abc enable
+r2(config-if)#int gi 0/1
+r2(config-if)#ipv6 rip abc enable
+r2(config-if)#^Z
+r2#wr
+
+check for status
+r2#show ipv6 route 

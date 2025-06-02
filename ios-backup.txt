@@ -1,0 +1,77 @@
+ios backup
+
+kaal#show flash:
+kaal#ping 10.0.0.100
+kaal#copy flash tftp
+Source filename []? c2800nm-advipservicesk9-mz.124-15.T1.bin
+Address or name of remote host []? 10.0.0.100 (tftp server ip)
+Destination filename [c2800nm-advipservicesk9-mz.124-15.T1.bin]? abc.bin
+
+new  ios from tftp
+
+kaal#del c2800nm-advipservicesk9-mz.124-15.T1.bin
+enter
+enter
+kaal#show flash: 
+
+kaal#copy tftp flash
+Address or name of remote host []? 10.0.0.100
+Source filename []? c2800nm-ipbasek9-mz.124-8.bin
+Destination filename [c2800nm-ipbasek9-mz.124-8.bin]?press enter
+kaal#show flash:
+kaal#reload
+
+
+if two ios in your flash 
+kaal#show flash:
+kaal#configure terminal
+kaal(config)#boot system flash c2800nm-ipbase-mz.123-14.T7.bin
+kaal(config)#exit
+kaal#copy running-config startup-config 
+kaal#reload
+
+kaal>enable
+kaal#show version (new ios load)
+
+
+
+no ios in your flash
+rommon 1>tftpdnld
+rommon 2 > IP_ADDRESS=10.0.0.1
+rommon 3 > IP_SUBNET_MASK=255.0.0.0
+rommon 4 > DEFAULT_GATEWAY=10.0.0.1
+rommon 5 > TFTP_SERVER=10.0.0.100
+rommon 6 > TFTP_FILE=c2800nm-advipservicesk9-mz.124-15.T1.bin
+rommon 7 > set
+rommon 8 > tftpdnld
+Do you wish to continue? y/n:  [n]:  y
+rommon 9>reset
+(now your ios start)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

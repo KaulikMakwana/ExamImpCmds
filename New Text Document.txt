@@ -1,0 +1,31 @@
+
+backup of nvram
+
+kaal#ping 10.0.0.100 (tftp server ip)
+kaal#copy startup-config tftp: 
+Address or name of remote host []? 10.0.0.100
+Destination filename [kaal-confg]? kaal
+
+
+restore of backup on new router
+
+[yes/no]: no
+
+Router>enable
+Router#configure terminal
+Router(config)#interface fastEthernet 0/0
+Router(config-if)#ip address 10.0.0.1 255.0.0.0
+Router(config-if)#no shutdown 
+Router(config-if)#exit
+Router(config)#exit
+Router#ping 10.0.0.100
+Router#copy tftp: startup-config 
+Address or name of remote host []? 10.0.0.100
+Source filename []? kaal
+Destination filename [startup-config]? press enter
+Router#reload
+  now your router start with old configure
+
+
+
+

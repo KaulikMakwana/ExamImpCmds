@@ -1,0 +1,22 @@
+r1#show cdp neighbors detail  
+
+r2(config)#ip host r1 10.0.0.1
+r2(config)#exit
+r2#r1  (you can access router1 via telnet)
+
+
+ssh
+
+
+r1(config)#ip domain-name ccna
+r1(config)#crypto key generate rsa 
+r1(config)#line vty 0 15
+r1(config-line)#password vvv
+r1(config-line)#transport input ssh 
+r1(config-line)#
+r1(config-line)#^Z
+r1#wr
+
+client router 2
+
+r2#ssh -l r1 -v 1 10.0.0.1
